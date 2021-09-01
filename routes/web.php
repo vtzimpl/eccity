@@ -26,3 +26,10 @@ Auth::routes();
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
+Route::get('/motolist', function() {
+    return view('moto_list');
+})->name('motolist')->middleware('auth');
+
+
+Route::get('/moto_edit_form', [App\Http\Controllers\HomeController::class, 'fetch_moto_info'])->name('fetch_moto_info');
+Route::get('/to_be_invoiced', function() {return view('to_be_invoiced');})->name('to_be_invoiced')->middleware('auth');
