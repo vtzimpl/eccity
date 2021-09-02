@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Home</h1>
 @stop
 
 @section('content')
-    <p>Total sold:</p>
+    <p>ECCITY - Nipponia Communication Platform</p>
 @stop
 
 @section('css')

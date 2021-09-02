@@ -252,8 +252,8 @@ return [
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
-        ],*/
-        ['header' => 'account_settings'],
+        ],
+        ['header' => 'account_settings'],*/
         [
             'text' => 'profile',
             'url'  => 'admin/settings',
@@ -269,16 +269,32 @@ return [
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text'    => 'New sale moto',
+                    'text'    => 'In stock moto',
+                    'icon'    => 'fas fa-warehouse',
                     'url'     => '/motolist',
-                   
+                  
 
                 ],     
               
                 [
                     'text' => 'To be invoiced',
+                    'icon'    => 'far fa-file-alt',
                     'url'  => '/to_be_invoiced',
                 ],
+
+             
+            
+                    [
+                        'text'    => 'Sold',
+                        'icon'    => 'far fa-paper-plane',
+                        'url'     => '/sold_moto_list',
+              
+    
+                    ],     
+
+
+
+
 
                
             ],
@@ -288,7 +304,7 @@ return [
         [
             'text'       => 'Reporting',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url'        => 'sold_moto_chart',
         ],
         [
             'text'       => 'Misc',

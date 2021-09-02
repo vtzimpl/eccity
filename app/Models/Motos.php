@@ -9,7 +9,7 @@ class Motos extends Model
 {
     use HasFactory;
 
-
+    protected $table = 'motos';
     
 
 

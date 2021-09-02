@@ -33,3 +33,7 @@ Route::get('/motolist', function() {
 
 Route::get('/moto_edit_form', [App\Http\Controllers\HomeController::class, 'fetch_moto_info'])->name('fetch_moto_info');
 Route::get('/to_be_invoiced', function() {return view('to_be_invoiced');})->name('to_be_invoiced')->middleware('auth');
+Route::get('/sold_moto_list', function() {return view('sold_moto_list');})->name('sold_moto_list')->middleware('auth');
+//Route::get('/sold_moto_chart', function() {return view('sold_moto_chart');})->name('sold_moto_chart')->middleware('auth');
+Route::post('/update_moto_details', [App\Http\Controllers\MotosController::class, 'update'])->name('update_moto_details')->middleware('auth');
+Route::get('/sold_moto_chart', [App\Http\Controllers\MotosController::class,'sales_chart'])->middleware('auth');
