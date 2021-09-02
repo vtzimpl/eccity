@@ -237,10 +237,10 @@ return [
         ],
 
         // Sidebar items:
-        [
+     /*   [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
-        ],
+        ],*/
          [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -264,56 +264,27 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-     /*  [
-            'text'    => 'multilevel',
+      [
+            'text'    => 'Invoicing',
             'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+                    'text'    => 'New sale moto',
+                    'url'     => '/motolist',
+                   
+
+                ],     
+              
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => 'To be invoiced',
+                    'url'  => '/to_be_invoiced',
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
+
+               
             ],
-        ],*/
-     /*   ['header' => 'labels'],*/
-        [
-            'text'       => 'Sales',
-            'icon_color' => 'red',
-            'url'        => '/motolist',
-        ],
-        [
-            'text'       => 'To be invoiced',
-            'icon_color' => 'grey',
-            'url'        => '/to_be_invoiced',
         ],
 
+      
         [
             'text'       => 'Reporting',
             'icon_color' => 'yellow',
