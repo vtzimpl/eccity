@@ -55,8 +55,8 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
               
                     <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
-            </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details"><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
-               @endforeach
+                </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
+         @endforeach
            </x-adminlte-datatable>
        </div>
 
@@ -82,6 +82,7 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
 
 
 
+@include('offcanvas.moto_view')
 
 
 

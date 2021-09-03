@@ -24,7 +24,7 @@
               <div class="col-md-3 mb-5">
                 <div class="form-group">
                   <label for="vin">VIN</label>
-                  <input type="text" class="form-control form-control-sm" name="vin" id="vin" value={{ $moto_current->VIN }} disabled >
+                  <input type="text" class="form-control" name="vin" id="vin" value={{ $moto_current->VIN }} disabled >
                 </div>
               </div>
               <div class="col-md-3 mb-5">
@@ -182,7 +182,7 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+  @stop
 
 @section('js')
    
