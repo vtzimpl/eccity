@@ -89,8 +89,9 @@ class MotosController extends Controller
         $moto->inv_eccity_date = $request->input('inv_eccity_date');
         $moto->inv_nipponia_nbr = $request->input('inv_nipponia_nbr');
         $moto->inv_nipponia_date = $request->input('inv_nipponia_date');
-        $moto->invoiced = $request->input('invoiced')=="on" ? 1:0;
-        $moto->modified_by = $request->input('modified_by');
+        //dd( $moto);
+        $moto->invoiced = $request->input('invoiced')=="on"?1:0;
+        
         $moto->modified_by = $request->input('modified_by');
         $moto->save();
         return redirect()->route('motolist');

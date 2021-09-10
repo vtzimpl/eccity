@@ -15,7 +15,7 @@
 
 
 <form action="{{url('update_moto_details')}}" method="post" >
-
+<input type="hidden" class="form-control" name="modified_by" id="modified_by" value={{ Auth::user()->name }}  >
 <input type="hidden" class="form-control" name="id" id="id" value={{ $moto_current->id }}  >
 {{ csrf_field() }}
 
@@ -208,7 +208,7 @@
 
 <script> 
 
-var sold = document.getElementById('sold');
+          var sold = document.getElementById('sold');
           var registration_nbr = document.getElementById('registration_nbr');
           var location_stock = document.getElementById('location');
           var inv_eccity_nbr = document.getElementById('inv_eccity_nbr');

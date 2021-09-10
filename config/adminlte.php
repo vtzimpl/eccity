@@ -265,16 +265,43 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
       [
-            'text'    => 'Invoicing',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Products (ECCITY)',
+            'icon'    => 'fas fa-warehouse',
             'submenu' => [
                 [
-                    'text'    => 'In stock moto',
-                    'icon'    => 'fas fa-warehouse',
+                    'text'    => 'Moto',
+                    'icon'    => 'fas fa-motorcycle',
                     'url'     => '/motolist',
-                  
+                   
 
                 ],     
+                [
+                    'text' => 'Spare Parts',
+                    'icon'    => 'fas fa-wrench',
+                    'url'  => '/splist',
+                ],
+
+              
+             
+            
+               
+            ],
+        ],
+
+
+
+
+
+
+
+
+
+
+        [
+            'text'    => 'Invoicing (NIPPONIA)',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+              
               
                 [
                     'text' => 'To be invoiced',
@@ -285,7 +312,7 @@ return [
              
             
                     [
-                        'text'    => 'Sold',
+                        'text'    => 'Fully invoiced',
                         'icon'    => 'far fa-paper-plane',
                         'url'     => '/sold_moto_list',
               
@@ -299,6 +326,65 @@ return [
                
             ],
         ],
+
+
+
+
+
+
+
+        [
+            'text'    => 'Administration',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text'    => 'Create new spare part',
+                    'icon'    => 'fas fa-wrench',
+                    'url'     => '/sparts_create_form',
+                  
+
+                ],     
+              
+                [
+                    'text'    => 'User management',
+                    'icon'    => 'fas fa-user',
+                    'url'     => '/user_list',
+                    'can' => 'isAdmin'
+
+                ],     
+
+
+
+               
+            ],
+        ],
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
         [

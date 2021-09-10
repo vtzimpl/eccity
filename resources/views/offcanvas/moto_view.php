@@ -11,16 +11,19 @@
         </button>
       </div>
       <div class="modal-body">
-
+      <p id="modaltest"></p>
       @foreach(App\Models\Motos::whereNotNull('sold')->where('sold','!=',1)->get()  as $moto)
             {{ $moto->model }}
       @endforeach
-
+  
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary  btn-ok" data-dismiss="modal">Close</button>
         </div>
     </div>
   </div>
 </div>
+
+
+

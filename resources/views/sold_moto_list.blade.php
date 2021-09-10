@@ -51,7 +51,7 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
        
        <h1>Motorcycles Sold</h1>
            <x-adminlte-datatable id="table_invoices" :heads="$heads_motos" striped hoverable with-buttons>
-           @foreach(App\Models\Motos::whereNotNull('sold')->where('sold','=',1)->get() as $moto)
+           @foreach(App\Models\Motos::whereNotNull('sold')->where('sold','=',1)->where('invoiced','=',1)->get() as $moto)
               
                     <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
@@ -61,46 +61,11 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
        </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @include('offcanvas.moto_view')
-
-
-
-
-
-
-
-
 @stop
-
-
-
-
-
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
-
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
