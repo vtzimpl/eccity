@@ -42,6 +42,8 @@
                                 <option value='admin'>admin</option>
                                 <option value='manager'>manager</option>
                                 <option value='user'>user</option>
+                                <option value='user_nipponia' >User Nipponia</option>
+                    <option value='user_eccity' >User ECCITY</option>
                     </select>
                 </div>
 
