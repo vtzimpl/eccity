@@ -39,9 +39,9 @@
                     <select class="form-control"  name="role" id="role">
                         <option selected>{{ $user_current->role }}</option>
                         <option value='admin'>--------</option>
-                                <option value='admin'>admin</option>
-                                <option value='manager'>manager</option>
-                                <option value='user'>user</option>
+                                <option value='admin'>Admin</option>
+                                <option value='manager'>Manager</option>
+                                <option value='user'>User</option>
                                 <option value='user_nipponia' >User Nipponia</option>
                     <option value='user_eccity' >User ECCITY</option>
                     </select>
