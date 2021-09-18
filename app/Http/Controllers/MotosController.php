@@ -79,22 +79,10 @@ class MotosController extends Controller
      */
     public function update(Request $request, Motos $motos)
     {
-       
-        $moto = Motos::find(intval($request->input('id')));
-        $moto->location = $request->input('location');
-        $moto->status = $request->input('status');
-        $moto->sold=$request->input('sold')=="on"?1:0;
-        $moto->registration_nbr = $request->input('registration_nbr');
-        $moto->inv_eccity_nbr = $request->input('inv_eccity_nbr');
-        $moto->inv_eccity_date = $request->input('inv_eccity_date');
-        $moto->inv_nipponia_nbr = $request->input('inv_nipponia_nbr');
-        $moto->inv_nipponia_date = $request->input('inv_nipponia_date');
-        //dd( $moto);
-        $moto->invoiced = $request->input('invoiced')=="on"?1:0;
-        
-        $moto->modified_by = $request->input('modified_by');
-        $moto->save();
-        return redirect()->route('motolist');
+       //dd($request);
+
+       $msg = "This is a simple message.";
+       return response()->json(array('msg'=> $msg), 200);
 
 
     }

@@ -21,6 +21,9 @@ Route::get('/motolist', function() {return view('moto_list');})->name('motolist'
 Route::get('/splist', function() {return view('splist');})->name('splist')->middleware('auth');
 Route::get('/user_list', function() {return view('user_list');})->name('user_list')->middleware('auth');
 Route::get('/moto_edit_form', [App\Http\Controllers\HomeController::class, 'fetch_moto_info'])->name('moto_edit_form')->middleware('auth');
+
+Route::get('/moto_view_form', [App\Http\Controllers\HomeController::class, 'fetch_moto_info_view'])->name('moto_view_form')->middleware('auth');
+
 Route::get('/user_edit_form', [App\Http\Controllers\HomeController::class, 'fetch_user_info'])->name('user_edit_form')->middleware('auth');
 Route::get('/sparts_sale_form', [App\Http\Controllers\HomeController::class, 'fetch_sp_info'])->name('spart_sale_form')->middleware('auth');
 Route::get('/to_be_invoiced', function() {return view('to_be_invoiced');})->name('to_be_invoiced')->middleware('auth');

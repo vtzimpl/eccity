@@ -12,9 +12,11 @@
       </div>
       <div class="modal-body">
       <p id="modaltest"></p>
-      @foreach(App\Models\Motos::whereNotNull('sold')->where('sold','!=',1)->get()  as $moto)
-            {{ $moto->model }}
-      @endforeach
+      <p id="modaltest2"></p>
+      <p id="modaltest3"></p>
+      <p id="modaltest4"></p>
+
+
   
 
       </div>

@@ -51,8 +51,21 @@ class HomeController extends Controller
         $moto_current = DB::table('motos')->where('id', $motoid)->first();
 //dd( $moto_current);
         return view('moto_edit_form')->with('moto_current',$moto_current);
+
+
+        
     }
 
+    public function fetch_moto_info_view(Request $request)
+    {
+        $motoid = 243;
+        $moto_current = DB::table('motos')->where('id', $motoid)->first();
+        
+            return response()->json([
+              'data' => $moto_current
+            ]);
+        
+    }
 
 
 

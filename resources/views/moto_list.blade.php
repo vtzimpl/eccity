@@ -3,6 +3,61 @@
 @section('title', 'All Motorcycles')
 @section('plugins.Datatables', true)
 @section('content_header')
+
+
+
+<script>
+         function getMessage(name) {
+      
+     
+       $.get('moto_view_form?motoid='+name, function (data) {
+      
+
+
+
+       $('#exampleModal').on('shown.bs.modal', function () {
+      $('#modaltest').text(data.data.id);
+     // $('#modaltest3').text(JSON.stringify(data));
+      $('#modaltest4').text(data.data.VIN);
+      $('#modaltest2').text(data.data.location);
+ })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ })
+
+              
+
+         }
+
+      </script>
+
+
+
+
+
+
+
+
+
     <h1>All Motorcycles in Stock</h1>
 @stop
 
@@ -43,32 +98,35 @@ $config['dom'] = '<"row" <"col-sm-7" B> <"col-sm-5 d-flex justify-content-end" i
 $config['paging'] = false;
 $config["lengthMenu"] = [ 10, 50, 100, 500];
 @endphp
+<div class="container-xxl">
 
 <div class="row">
-<div class="col-md-2 mb-5">
-</div>
-<div class="col-md-6 mb-5">
+
+<div class="col-md-9 mb-5">
        
        <h1>Motorcycles in Stock</h1>
            <x-adminlte-datatable id="table_invoices" :heads="$heads_motos" striped hoverable with-buttons>
            @foreach(App\Models\Motos::whereNotNull('sold')->where('sold','!=',1)->get()  as $moto)
               
-                    <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+                    <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a id="{{$moto->id}}" href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" onclick="getMessage()" title="Edit">
                 <i class="fa fa-lg fa-fw fa-pen"></i>
-            </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
+            </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" onclick="getMessage('{{$moto->id}}')" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
                @endforeach
 
                @foreach(App\Models\Motos::whereNull('sold')->get()  as $moto)
               
-              <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" title="Edit">
+              <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a id="{{$moto->id}}" href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" onclick="getMessage()" title="Edit">
           <i class="fa fa-lg fa-fw fa-pen"></i>
-      </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" title="Details" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
+      </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#exampleModal" title="Details" onclick="getMessage('{{$moto->id}}')" ><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
          @endforeach
 
 
 
            </x-adminlte-datatable>
        </div>
+
+</div>
+
 
 </div>
 
@@ -114,9 +172,7 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
 <script>
 
 
-$('#exampleModal').on('shown.bs.modal', function () {
-      $('#modaltest').text('tesjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjt');
-})
+
 </script>
 
 
