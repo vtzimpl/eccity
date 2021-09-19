@@ -5,51 +5,42 @@
 @section('content_header')
 
 
-
+ <!-- view modal -->
 <script>
-         function getMessage(name) {
-      
-     
-       $.get('moto_view_form?motoid='+name, function (data) {
-      
+        function getmotoidview(name) {
+                            $.get('moto_view_form_modal?motoid='+name, function (data) {
+                                        $('#exampleModal').on('shown.bs.modal', function () {
+                                                            $('#modaltest').text(data.data.id);
+                                                            $('#modaltest3').text(JSON.stringify(data));
+                                                            $('#modaltest4').text(data.data.VIN);
+                                                            $('#modaltest2').text(data.data.location);
+                                        })
+                            })
+          }
+</script>
+ <!-- view modal -->
 
 
 
-       $('#exampleModal').on('shown.bs.modal', function () {
-      $('#modaltest').text(data.data.id);
-     // $('#modaltest3').text(JSON.stringify(data));
-      $('#modaltest4').text(data.data.VIN);
-      $('#modaltest2').text(data.data.location);
- })
+  <!-- edit modal -->
+<script>
+        function getmotoidedit(name) {
+                            $.get('moto_edit_form_modal?motoid='+name, function (data) {
+                                        $('#motoeditform').on('shown.bs.modal', function () {
+                                                            $("#updateform").attr('action', 'update_moto_details');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- })
-
-              
-
-         }
-
-      </script>
-
+                                                            $('#motoeditformlabel').text(data.data.model);
+                                                            $('#modaleditid').val(data.data.id);
+                                                            $('#_token').val("{{ csrf_token() }}");
+                                                            $('#modaleditvin').val(data.data.VIN);
+                                                            $('#modaleditmodel').val(data.data.model);
+                                                            $('#modaleditcolor').val(data.data.color);
+                                                            $('#modaleditpo').val(data.data.PO);
+                                        })
+                            })
+          }
+</script>
+ <!-- edit modal -->
 
 
 
@@ -115,9 +106,12 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
 
                @foreach(App\Models\Motos::whereNull('sold')->get()  as $moto)
               
-              <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td><td><a id="{{$moto->id}}" href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" onclick="getMessage()" title="Edit">
-          <i class="fa fa-lg fa-fw fa-pen"></i>
-      </button></a>     <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#exampleModal" title="Details" onclick="getMessage('{{$moto->id}}')" ><i class="fa fa-lg fa-fw fa-eye"></i></button> </td></tr>
+              <tr><td>{{ $moto->model }}</td><td>{{ $moto->color }}</td><td>{{ $moto->VIN }}</td><td>{{ $moto->PO }}</td>
+              <td>
+       <!--           <a id="{{$moto->id}}" href=@php echo url("/moto_edit_form?motoid={$moto->id}"); @endphp><button class="btn btn-xs btn-default text-primary mx-1 shadow" onclick="getMessage()" title="Edit"><i class="fa fa-lg fa-fw fa-pen"></i></button></a> -->  
+       <button class="btn btn-xs btn-default text-primary mx-1 shadow" data-toggle="modal" data-target="#motoeditform" title="Edit" onclick="getmotoidedit('{{$moto->id}}')" ><i class="fa fa-lg fa-fw fa-pen"></i></button>
+       <button class="btn btn-xs btn-default text-teal mx-1 shadow" data-toggle="modal" data-target="#exampleModal" title="Details" onclick="getmotoidview('{{$moto->id}}')" ><i class="fa fa-lg fa-fw fa-eye"></i></button>
+             </td></tr>
          @endforeach
 
 
@@ -144,7 +138,7 @@ $config["lengthMenu"] = [ 10, 50, 100, 500];
 
 
 @include('offcanvas.moto_view')
-
+@include('offcanvas.moto_edit')
 
 
 

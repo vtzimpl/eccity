@@ -45,7 +45,7 @@ class HomeController extends Controller
 
 
    
-    public function fetch_moto_info(Request $request)
+    public function fetch_moto_info(Request $request) //old
     {
         $motoid = intval($request->input('motoid'));
         $moto_current = DB::table('motos')->where('id', $motoid)->first();
@@ -56,16 +56,22 @@ class HomeController extends Controller
         
     }
 
-    public function fetch_moto_info_view(Request $request)
+    public function fetch_moto_info_modal(Request $request)
     {
-        $motoid = 243;
+        $motoid = intval($request->input('motoid'));
         $moto_current = DB::table('motos')->where('id', $motoid)->first();
-        
-            return response()->json([
-              'data' => $moto_current
-            ]);
-        
-    }
+        return response()->json(['data'=>$moto_current]);
+     }
+
+
+
+
+
+
+
+
+
+
 
 
 
